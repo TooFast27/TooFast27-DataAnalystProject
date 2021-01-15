@@ -59,10 +59,15 @@
     <Folder Include="Control\" />
     <Folder Include="Control\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="Stage\" />
+    <Folder Include="Stage\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Control\Tables\ExecutionLog.sql" />
     <Build Include="Control\Tables\ExecutionLogStatus.sql" />
     <Build Include="Security\Control.sql" />
+    <Build Include="Stage\Tables\pageviews_extract.sql" />
+    <Build Include="Stage\Tables\users_extract.sql" />
+    <Build Include="Security\Stage.sql" />
   </ItemGroup>
 </Project>
