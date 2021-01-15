@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB.WebAgencyDWH", "DB.WebAgencyDWH\DB.WebAgencyDWH.sqlproj", "{3780635B-0645-428B-B935-0EF7A5758653}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3780635B-0645-428B-B935-0EF7A5758653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04BFC494-6761-44CF-8F81-07CB3C606261}
+	EndGlobalSection
+EndGlobal
