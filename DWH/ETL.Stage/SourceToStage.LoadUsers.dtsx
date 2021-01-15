@@ -1,0 +1,814 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/15/2021 10:58:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-R4R192B"
+  DTS:CreatorName="DESKTOP-R4R192B\Peppe"
+  DTS:DTSID="{3FD5C948-51E8-47F1-B7D0-210A5347072A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1040"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{CFCB5930-7AE1-4F24-AB6C-80C2330CFA30}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED318C9A-6407-4B04-8BFC-C38A1EEAF1D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CountInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{36532A71-644B-4D51-816F-8550C2F4A5AC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">SourceToStage.LoadUsers</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B079CDA6-E739-4C58-93FE-C849712BBAF3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExecutionLogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6A2F83E1-819E-4B18-A2F5-04DCDC4BA0FD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Export.[VwUser]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{925DFF8D-B41B-4CD1-8268-354245FD3187}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TargetTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Stage.users_extract</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E9DAA6B5-2D48-4A3D-BD67-2A17EE42529B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\DTF - Load User Data Into Staging"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Attività Flusso di dati"
+          DTS:DTSID="{62F48510-A019-4E6B-8211-A32CC1F764A3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DTF - Load User Data Into Staging"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Conteggio righe;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;0"
+                  description="Conta le righe in un flusso di dati. Ad esempio, utilizzare il numero di righe elaborate per determinare se eseguire o meno operazioni di pulizia oppure aggiornare il testo in un messaggio di posta elettronica per comunicare l'avanzamento dell'elaborazione."
+                  name="CNT - Count Rows">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifica la variabile per la memorizzazione del conteggio delle righe."
+                      name="VariableName">User::CountInsertedRows</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows.Inputs[Conteggio righe Input 1]"
+                      hasSideEffects="true"
+                      name="Conteggio righe Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows.Outputs[Conteggio righe Output 1]"
+                      name="Conteggio righe Output 1"
+                      synchronousInputId="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows.Inputs[Conteggio righe Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="Origine OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;7"
+                  description="Origine OLE DB"
+                  name="OLE DB - Get Users"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                      name="OpenRowset">[Export].[VwUser]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL da eseguire."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="Variabile che contiene il comando SQL da eseguire."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifica la modalità utilizzata per accedere al database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Mapping tra i parametri nel comando SQL e le variabili."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Connections[OleDbConnection]"
+                      connectionManagerID="{E11CE3DC-C4A8-4195-8A31-C25EE222C7C6}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[DWHExport]"
+                      description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB]"
+                      name="Output origine OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversione"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[UserID]"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]"
+                          name="UserID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversione"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[Postcode]"
+                          length="10"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Postcode]"
+                          name="Postcode"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[UserID]"
+                          dataType="i4"
+                          name="UserID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Postcode" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB]"
+                      isErrorOut="true"
+                      name="Output errori origine OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[UserID]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[UserID]"
+                          name="UserID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[Postcode]"
+                          name="Postcode" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Destinazione OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;4"
+                  description="Destinazione OLE DB"
+                  name="OLE DB - Insert Users"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Numero di secondi prima del timeout di un comando. Il valore 0 indica nessun timeout."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifica il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                      name="OpenRowset">[Stage].[users_extract]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifica la variabile contenente il nome dell'oggetto di database utilizzato per aprire un set di righe."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL da eseguire."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifica la tabella codici della colonna da utilizzare quando l'origine dati non rende disponibili informazioni sulla tabella codici."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forza l'utilizzo del valore della proprietà DefaultCodePage per la descrizione di dati di tipo carattere."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifica la modalità utilizzata per accedere al database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica se i valori specificati per le colonne Identity verranno copiati nella destinazione. Se false, i valori delle colonne Identity verranno generati automaticamente nella destinazione. Applicabile solo se è abilitato il caricamento rapido."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica se per le colonne con valori Null, tali valori verranno inseriti nella destinazione. Se false, per le colonne con valori Null verranno inseriti i valori predefiniti corrispondenti nella destinazione. Applicabile solo se è attivato il caricamento rapido."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifica le opzioni da utilizzare con il caricamento rapido. Applicabile solo se è attivato il caricamento rapido."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifica se vengono eseguiti commit durante l'inserimento dei dati. Il valore 0 indica che verrà eseguito un solo commit al termine dell'inserimento dei dati. Applicabile solo se è attivato il caricamento rapido."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Connections[OleDbConnection]"
+                      connectionManagerID="{2771923C-1E46-46F9-9170-C947F8790A31}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WebAgencyDWH]"
+                      description="Connessione di run-time OLE DB utilizzata per accedere al database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB]"
+                      errorOrTruncationOperation="Inserimento"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Input destinazione OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[UserID]"
+                          cachedDataType="i4"
+                          cachedName="UserID"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[Postcode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Postcode"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[Postcode]"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Postcode]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
+                          dataType="i4"
+                          name="UserID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Postcode" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Output errori destinazione OLE DB"
+                      synchronousInputId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\DTF - Load User Data Into Staging.Paths[Conteggio righe Output 1]"
+                  endId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB]"
+                  name="Conteggio righe Output 1"
+                  startId="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows.Outputs[Conteggio righe Output 1]" />
+                <path
+                  refId="Package\Sequence Container\DTF - Load User Data Into Staging.Paths[Output origine OLE DB]"
+                  endId="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows.Inputs[Conteggio righe Input 1]"
+                  name="Output origine OLE DB"
+                  startId="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - End Package Log"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Attività Esegui SQL"
+          DTS:DTSID="{d122f81d-fba0-414c-9df2-6f0567dfe368}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - End Package Log"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2771923C-1E46-46F9-9170-C947F8790A31}"
+              SQLTask:SqlStatementSource="EXEC [Control].[EndLog] 1,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ExecutionLogID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::CountInsertedRows"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - Start Package Log"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Attività Esegui SQL"
+          DTS:DTSID="{17893A45-7A86-4B30-9FC1-0E1A1BABE06F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Start Package Log"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2771923C-1E46-46F9-9170-C947F8790A31}"
+              SQLTask:SqlStatementSource="EXEC [Control].[StartLog] ?"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::ExecutionLogID" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::EntityName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - Truncate User Staging table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Attività Esegui SQL"
+          DTS:DTSID="{46221052-A5E4-436A-B838-B2A1101B7485}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Truncate User Staging table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2771923C-1E46-46F9-9170-C947F8790A31}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[users_extract]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{43D05DA4-E6F9-42C0-B197-E9C8422AE4B0}"
+          DTS:From="Package\Sequence Container\SQL - Start Package Log"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\SQL - Truncate User Staging table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{8DA6C30D-81B8-4AD4-AD66-5D87098C7992}"
+          DTS:From="Package\Sequence Container\SQL - Truncate User Staging table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\DTF - Load User Data Into Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{0FA0DB3E-ACA0-4A04-86AC-D8EFB9E6B969}"
+          DTS:From="Package\Sequence Container\DTF - Load User Data Into Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\SQL - End Package Log" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F2CF37D4-67BA-42CA-9A39-92261F49EEB9}"
+      DTS:EventID="1021258152"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="Proprietà di propagazione dell'evento"
+          DTS:DTSID="{218B8405-31EA-4870-ADE7-B8B0716E4408}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL - End Package Log Reporting Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Attività Esegui SQL"
+          DTS:DTSID="{81077270-233c-4aa6-9232-47d601c88afa}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - End Package Log Reporting Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2771923C-1E46-46F9-9170-C947F8790A31}"
+              SQLTask:SqlStatementSource="EXEC [Control].[EndLog] 3,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::ExecutionLogID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Sequence Container\SQL - Start Package Log"
+          TopLeft="35,9" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="135.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,70"
+              Start="0,0"
+              End="14,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="10,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,35"
+                    Point2="14,35"
+                    Point3="14,39" />
+                  <mssgle:LineSegment
+                    End="14,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Sequence Container\SQL - Truncate User Staging table"
+          TopLeft="26,121" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="146.75,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Sequence Container\DTF - Load User Data Into Staging"
+          TopLeft="20,215" />
+        <AnnotationLayout
+          Text="This task initiate the log for the package&#xD;&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="200,72"
+          Id="d7f3ede7-b1b4-41a7-8338-a64e93925526"
+          TopLeft="313,5.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Sequence Container\SQL - End Package Log"
+          TopLeft="48,325" />
+        <AnnotationLayout
+          Text="We use the view into the Export db to get all the Data from the Datasources&#xD;&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="430,60"
+          Id="c9f43d31-0e7c-493e-83b5-522e95919495"
+          TopLeft="314,207" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="145.25,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Complete run Log&#xD;&#xA;&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="124,72"
+          Id="8d06ca2c-0805-4591-9cff-4db7f3bd3f4e"
+          TopLeft="338,318" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="755,537"
+          Size="755,580"
+          Id="Package\Sequence Container"
+          TopLeft="293,11" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\DTF - Load User Data Into Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users"
+          TopLeft="448,49" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users"
+          TopLeft="433,207" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\DTF - Load User Data Into Staging\CNT - Count Rows"
+          TopLeft="433,123" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DTF - Load User Data Into Staging.Paths[Output origine OLE DB]"
+          TopLeft="537,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.5,32"
+              Start="0,0"
+              End="-18.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
+                  <mssgle:LineSegment
+                    End="-14.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.5,16"
+                    Point2="-18.5,16"
+                    Point3="-18.5,20" />
+                  <mssgle:LineSegment
+                    End="-18.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DTF - Load User Data Into Staging.Paths[Conteggio righe Output 1]"
+          TopLeft="518.5,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,42"
+              Start="0,0"
+              End="8.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="4.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,21"
+                    Point2="8.5,21"
+                    Point3="8.5,25" />
+                  <mssgle:LineSegment
+                    End="8.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Get Users">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DTF - Load User Data Into Staging\OLE DB - Insert Users">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="275,42"
+          Id="Package.EventHandlers[OnError]\SQL - End Package Log Reporting Error"
+          TopLeft="60,60" />
+        <AnnotationLayout
+          Text="When the package Fails we log the error in our logging table"
+          ParentId="Package.EventHandlers[OnError]"
+          FontInfo="{assembly:Null}"
+          Size="350,60"
+          Id="394f056e-6eee-4e90-9e00-e5498fb3bebb"
+          TopLeft="337,57" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

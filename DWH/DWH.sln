@@ -5,18 +5,30 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB.WebAgencyDWH", "DB.WebAgencyDWH\DB.WebAgencyDWH.sqlproj", "{3780635B-0645-428B-B935-0EF7A5758653}"
 EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL.SourceToStage", "ETL.Stage\ETL.SourceToStage.dtproj", "{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3780635B-0645-428B-B935-0EF7A5758653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3780635B-0645-428B-B935-0EF7A5758653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3780635B-0645-428B-B935-0EF7A5758653}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{3780635B-0645-428B-B935-0EF7A5758653}.Development|Any CPU.Deploy.0 = Debug|Any CPU
 		{3780635B-0645-428B-B935-0EF7A5758653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3780635B-0645-428B-B935-0EF7A5758653}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3780635B-0645-428B-B935-0EF7A5758653}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}.Debug|Any CPU.ActiveCfg = Development
+		{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}.Debug|Any CPU.Build.0 = Development
+		{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}.Development|Any CPU.ActiveCfg = Development
+		{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}.Development|Any CPU.Build.0 = Development
+		{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}.Release|Any CPU.ActiveCfg = Development
+		{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
