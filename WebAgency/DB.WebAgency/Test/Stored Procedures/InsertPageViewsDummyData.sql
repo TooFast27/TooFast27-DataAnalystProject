@@ -6,14 +6,14 @@
 -- Parameters: @NumberOfDummyPageViews int default 9000 
 -- =============================================
 CREATE PROCEDURE [Test].[InsertPageViewsDummyData]
-	@NumberOfDummyPageViews int = 9000 
+	@NumberOfDummyPageViews int = 90000 
 AS
 BEGIN
 	SET NOCOUNT ON;
 
 	
-	INSERT INTO [dbo].[PageView]([UserID])
-	SELECT TOP(@NumberOfDummyPageViews) [UserID]  
+	INSERT INTO [dbo].[PageView]([UserID], [Url])
+	SELECT TOP(@NumberOfDummyPageViews) [UserID], CONCAT('http://www.example.com/', LEFT(NEWID(),5)) 
 	FROM [dbo].[User]
 	order by NEWID()
 END
