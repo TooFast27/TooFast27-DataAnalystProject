@@ -6,9 +6,12 @@
     [PageviewDatetime]      DATETIME      NOT NULL,
     [url]                   VARCHAR (500) NULL,
     [ExecutionLogID]        INT           NOT NULL,
+    [InsertedDateTime]      DATETIME      NOT NULL,
     PRIMARY KEY CLUSTERED ([pageviews_extract_key] ASC),
     FOREIGN KEY ([users_extract_key]) REFERENCES [Dimension].[users_extract] ([users_extract_key])
 );
+
+
 
 
 

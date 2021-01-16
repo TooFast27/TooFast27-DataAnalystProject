@@ -7,7 +7,8 @@
 CREATE PROCEDURE [Control].[EndLog]
 	@Status int,
 	@ExecutionLogID VARCHAR(200),
-	@RowsInserted int = 0
+	@RowsInserted int = 0,
+	@RowsUpdated int = 0
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -16,7 +17,8 @@ BEGIN
 	SET 
 		EndDate = GETDATE(),
 		StatusID = @Status,
-		RowsInserted = @RowsInserted
+		RowsInserted = @RowsInserted,
+		RowsUpdated = @RowsUpdated
 	WHERE ExecutionLogID = @ExecutionLogID
 
 

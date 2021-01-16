@@ -67,6 +67,7 @@
     <Folder Include="Dimension\" />
     <Folder Include="Dimension\Tables\" />
     <Folder Include="Dimension\Stored Procedures\" />
+    <Folder Include="Fact\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Control\Tables\ExecutionLog.sql" />
@@ -83,5 +84,6 @@
     <Build Include="Security\Fact.sql" />
     <Build Include="Security\Dimension.sql" />
     <Build Include="Dimension\Stored Procedures\UserExtractStageToDimension.sql" />
+    <Build Include="Fact\Stored Procedures\PopulatePageViewsFactTable.sql" />
   </ItemGroup>
 </Project>
