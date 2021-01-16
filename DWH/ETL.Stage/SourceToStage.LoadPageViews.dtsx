@@ -11,8 +11,8 @@
   DTS:LocaleID="1040"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{D36F1163-AFB9-4710-9310-2F77C60DCE78}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{81832400-9459-45E4-9049-62DCE0615102}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -50,7 +50,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="LastExportedPageViewDate">
       <DTS:VariableValue
-        DTS:DataType="7">1/1/1990</DTS:VariableValue>
+        DTS:DataType="8">2021-01-16 18:45:46.180</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -137,11 +137,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users"
+                  refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="Origine OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;7"
                   description="Origine OLE DB"
-                  name="OLE DB - Get Users"
+                  name="OLE DB - Get PageViews"
                   usesDispositions="true"
                   version="7">
                   <properties>
@@ -186,7 +186,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Connections[OleDbConnection]"
+                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Connections[OleDbConnection]"
                       connectionManagerID="{E11CE3DC-C4A8-4195-8A31-C25EE222C7C6}:external"
                       connectionManagerRefId="Project.ConnectionManagers[DWHExport]"
                       description="Connessione di run-time OLE DB utilizzata per accedere al database."
@@ -194,64 +194,64 @@
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB]"
+                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB]"
                       name="Output origine OLE DB">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[UserID]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversione"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[UserID]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[UserID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[UserID]"
                           name="UserID"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageViewID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[PageViewID]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversione"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[PageViewID]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageViewID]"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[PageViewID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[PageViewID]"
                           name="PageViewID"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageviewDatetime]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[PageviewDatetime]"
                           dataType="dbTimeStamp"
                           errorOrTruncationOperation="Conversione"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[PageviewDatetime]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageviewDatetime]"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[PageviewDatetime]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[PageviewDatetime]"
                           name="PageviewDatetime"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Url]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[Url]"
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversione"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[Url]"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[Url]"
                           length="500"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Url]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[Url]"
                           name="Url"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[UserID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[UserID]"
                           dataType="i4"
                           name="UserID" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[PageViewID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[PageViewID]"
                           dataType="i4"
                           name="PageViewID" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[PageviewDatetime]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[PageviewDatetime]"
                           dataType="dbTimeStamp"
                           name="PageviewDatetime" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].ExternalColumns[Url]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].ExternalColumns[Url]"
                           codePage="1252"
                           dataType="str"
                           length="500"
@@ -259,42 +259,42 @@
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB]"
+                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB]"
                       isErrorOut="true"
                       name="Output errori origine OLE DB">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[PageViewID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[PageViewID]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[PageViewID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[PageViewID]"
                           name="PageViewID" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[UserID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[UserID]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[UserID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[UserID]"
                           name="UserID" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[PageviewDatetime]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[PageviewDatetime]"
                           dataType="dbTimeStamp"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[PageviewDatetime]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[PageviewDatetime]"
                           name="PageviewDatetime" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[Url]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[Url]"
                           codePage="1252"
                           dataType="str"
                           length="500"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[Url]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[Url]"
                           name="Url" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output errori origine OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -303,11 +303,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users"
+                  refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="Destinazione OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tutti i diritti sono riservati; http://www.microsoft.com/sql/support;4"
                   description="Destinazione OLE DB"
-                  name="OLE DB - Insert Users"
+                  name="OLE DB - Insert PageViews"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -360,7 +360,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Connections[OleDbConnection]"
+                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Connections[OleDbConnection]"
                       connectionManagerID="{2771923C-1E46-46F9-9170-C947F8790A31}:external"
                       connectionManagerRefId="Project.ConnectionManagers[WebAgencyDWH]"
                       description="Connessione di run-time OLE DB utilizzata per accedere al database."
@@ -368,55 +368,55 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB]"
+                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB]"
                       errorOrTruncationOperation="Inserimento"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="Input destinazione OLE DB">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[UserID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].Columns[UserID]"
                           cachedDataType="i4"
                           cachedName="UserID"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]" />
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[UserID]" />
                         <inputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[PageViewID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].Columns[PageViewID]"
                           cachedDataType="i4"
                           cachedName="PageViewID"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[PageViewID]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageViewID]" />
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[PageViewID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[PageViewID]" />
                         <inputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[PageviewDatetime]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].Columns[PageviewDatetime]"
                           cachedDataType="dbTimeStamp"
                           cachedName="PageviewDatetime"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[PageviewDatetime]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageviewDatetime]" />
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[PageviewDatetime]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[PageviewDatetime]" />
                         <inputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[Url]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].Columns[Url]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="500"
                           cachedName="Url"
-                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[url]"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Url]" />
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[url]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB].Columns[Url]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
                           dataType="i4"
                           name="UserID" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[PageViewID]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[PageViewID]"
                           dataType="i4"
                           name="PageViewID" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[PageviewDatetime]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[PageviewDatetime]"
                           dataType="dbTimeStamp"
                           name="PageviewDatetime" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[url]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB].ExternalColumns[url]"
                           codePage="1252"
                           dataType="str"
                           length="500"
@@ -426,22 +426,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB]"
+                      refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Outputs[Output errori destinazione OLE DB]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Output errori destinazione OLE DB"
-                      synchronousInputId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB]">
+                      synchronousInputId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Outputs[Output errori destinazione OLE DB].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Outputs[Output errori destinazione OLE DB].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -453,14 +453,14 @@
               <paths>
                 <path
                   refId="Package\Sequence Container\DTF - Load PageView Data Into Staging.Paths[Conteggio righe Output 1]"
-                  endId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB]"
+                  endId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews.Inputs[Input destinazione OLE DB]"
                   name="Conteggio righe Output 1"
                   startId="Package\Sequence Container\DTF - Load PageView Data Into Staging\CNT - Count Rows.Outputs[Conteggio righe Output 1]" />
                 <path
                   refId="Package\Sequence Container\DTF - Load PageView Data Into Staging.Paths[Output origine OLE DB]"
                   endId="Package\Sequence Container\DTF - Load PageView Data Into Staging\CNT - Count Rows.Inputs[Conteggio righe Input 1]"
                   name="Output origine OLE DB"
-                  startId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB]" />
+                  startId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews.Outputs[Output origine OLE DB]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -847,12 +847,12 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="178,42"
-          Id="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users"
+          Size="204,42"
+          Id="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews"
           TopLeft="448,49" />
         <NodeLayout
-          Size="188,42"
-          Id="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users"
+          Size="214,42"
+          Id="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews"
           TopLeft="433,207" />
         <NodeLayout
           Size="171,42"
@@ -864,9 +864,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.5,42"
+              EndConnector="21.5,42"
               Start="0,0"
-              End="8.5,34.5">
+              End="21.5,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -877,13 +877,13 @@
                     Point2="0,21"
                     Point3="4,21" />
                   <mssgle:LineSegment
-                    End="4.5,21" />
+                    End="17.5,21" />
                   <mssgle:CubicBezierSegment
-                    Point1="4.5,21"
-                    Point2="8.5,21"
-                    Point3="8.5,25" />
+                    Point1="17.5,21"
+                    Point2="21.5,21"
+                    Point3="21.5,25" />
                   <mssgle:LineSegment
-                    End="8.5,34.5" />
+                    End="21.5,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -894,13 +894,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\DTF - Load PageView Data Into Staging.Paths[Output origine OLE DB]"
-          TopLeft="537,91">
+          TopLeft="550,91">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-18.5,32"
+              EndConnector="-31.5,32"
               Start="0,0"
-              End="-18.5,24.5">
+              End="-31.5,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -911,13 +911,13 @@
                     Point2="0,16"
                     Point3="-4,16" />
                   <mssgle:LineSegment
-                    End="-14.5,16" />
+                    End="-27.5,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="-14.5,16"
-                    Point2="-18.5,16"
-                    Point3="-18.5,20" />
+                    Point1="-27.5,16"
+                    Point2="-31.5,16"
+                    Point3="-31.5,20" />
                   <mssgle:LineSegment
-                    End="-18.5,24.5" />
+                    End="-31.5,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -930,7 +930,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users">
+    design-time-name="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get PageViews">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -943,7 +943,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users">
+    design-time-name="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert PageViews">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
