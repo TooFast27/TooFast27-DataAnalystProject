@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB.WebAgencyDWH", "DB.WebAgencyDWH\DB.WebAgencyDWH.sqlproj", "{3780635B-0645-428B-B935-0EF7A5758653}"
 EndProject
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL.SourceToStage", "ETL.Stage\ETL.SourceToStage.dtproj", "{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}"
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ETL.DWHProcess", "ETL.Stage\ETL.DWHProcess.dtproj", "{ABA43AC3-679E-4F1A-8F9D-AB13E903B300}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
