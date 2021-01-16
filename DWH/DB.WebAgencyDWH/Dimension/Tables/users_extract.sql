@@ -9,3 +9,10 @@
     PRIMARY KEY CLUSTERED ([users_extract_key] ASC)
 );
 
+
+
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX__users_extract.uniqueId]
+    ON [Dimension].[users_extract]([UserID] ASC) WHERE ([IsActive]=(1));
+

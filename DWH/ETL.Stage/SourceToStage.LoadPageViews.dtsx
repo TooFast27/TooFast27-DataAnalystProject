@@ -11,8 +11,8 @@
   DTS:LocaleID="1040"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{D9A5B908-7DAE-4A16-9A82-87D8D394341D}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{D36F1163-AFB9-4710-9310-2F77C60DCE78}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -380,6 +380,26 @@
                           cachedName="UserID"
                           externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[UserID]"
                           lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[UserID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[PageViewID]"
+                          cachedDataType="i4"
+                          cachedName="PageViewID"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[PageViewID]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageViewID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[PageviewDatetime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="PageviewDatetime"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[PageviewDatetime]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[PageviewDatetime]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].Columns[Url]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="Url"
+                          externalMetadataColumnId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Insert Users.Inputs[Input destinazione OLE DB].ExternalColumns[url]"
+                          lineageId="Package\Sequence Container\DTF - Load PageView Data Into Staging\OLE DB - Get Users.Outputs[Output origine OLE DB].Columns[Url]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -648,6 +668,10 @@
           Id="Package\Sequence Container\SQL - End Package Log"
           TopLeft="48,325" />
         <NodeLayout
+          Size="283,42"
+          Id="Package\Sequence Container\SQL - Get Last Exported Date PageViews"
+          TopLeft="17,93.6666666666667" />
+        <NodeLayout
           Size="201,42"
           Id="Package\Sequence Container\SQL - Start Package Log"
           TopLeft="35,9" />
@@ -655,6 +679,40 @@
           Size="274,42"
           Id="Package\Sequence Container\SQL - Truncate PageView Staging table"
           TopLeft="28,178" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="135.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,42.6666666666667"
+              Start="0,0"
+              End="23,35.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3333333333333"
+                    Point2="0,21.3333333333333"
+                    Point3="4,21.3333333333333" />
+                  <mssgle:LineSegment
+                    End="19,21.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,21.3333333333333"
+                    Point2="23,21.3333333333333"
+                    Point3="23,25.3333333333333" />
+                  <mssgle:LineSegment
+                    End="23,35.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="162.75,220">
@@ -711,65 +769,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="This task initiate the log for the package&#xA;"
-          ParentId="Package\Sequence Container"
-          FontInfo="{assembly:Null}"
-          Size="200,72"
-          Id="d7f3ede7-b1b4-41a7-8338-a64e93925526"
-          TopLeft="313,5.5" />
-        <AnnotationLayout
-          Text="We use the view into the Export db to get all the Data from the Datasources&#xA;"
-          ParentId="Package\Sequence Container"
-          FontInfo="{assembly:Null}"
-          Size="430,56"
-          Id="c9f43d31-0e7c-493e-83b5-522e95919495"
-          TopLeft="310,245" />
-        <AnnotationLayout
-          Text="Complete run Log&#xA;&#xA;"
-          ParentId="Package\Sequence Container"
-          FontInfo="{assembly:Null}"
-          Size="124,72"
-          Id="8d06ca2c-0805-4591-9cff-4db7f3bd3f4e"
-          TopLeft="338,319.111111111111" />
-        <NodeLayout
-          Size="283,42"
-          Id="Package\Sequence Container\SQL - Get Last Exported Date PageViews"
-          TopLeft="17,93.6666666666667" />
-        <EdgeLayout
-          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="135.5,51">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23,42.6666666666667"
-              Start="0,0"
-              End="23,35.1666666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.3333333333333"
-                    Point2="0,21.3333333333333"
-                    Point3="4,21.3333333333333" />
-                  <mssgle:LineSegment
-                    End="19,21.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19,21.3333333333333"
-                    Point2="23,21.3333333333333"
-                    Point3="23,25.3333333333333" />
-                  <mssgle:LineSegment
-                    End="23,35.1666666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
           TopLeft="161.75,135.666666666667">
@@ -792,6 +791,27 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="This task initiate the log for the package&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="200,72"
+          Id="d7f3ede7-b1b4-41a7-8338-a64e93925526"
+          TopLeft="313,5.5" />
+        <AnnotationLayout
+          Text="We use the view into the Export db to get all the Data from the Datasources&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="430,56"
+          Id="c9f43d31-0e7c-493e-83b5-522e95919495"
+          TopLeft="310,245" />
+        <AnnotationLayout
+          Text="Complete run Log&#xA;&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="124,72"
+          Id="8d06ca2c-0805-4591-9cff-4db7f3bd3f4e"
+          TopLeft="338,319.111111111111" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
