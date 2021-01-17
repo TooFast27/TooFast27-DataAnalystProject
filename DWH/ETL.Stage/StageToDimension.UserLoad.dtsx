@@ -5,20 +5,20 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-R4R192B"
   DTS:CreatorName="DESKTOP-R4R192B\Peppe"
-  DTS:DTSID="{262232A4-27E7-4DA7-9B85-84D50EC64C9D}"
+  DTS:DTSID="{4597FFEC-6941-4988-A057-FA2A5E025817}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1040"
-  DTS:ObjectName="StageToDimension UserExtracted"
+  DTS:ObjectName="StageToDimension UserLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{79C81F00-2D9A-46A4-8621-DA363BD1FD8B}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{8366A3E6-91F7-40A7-A7FF-EB58FE11EB88}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9955F56D-4873-42CE-87B1-1B1A2A5771EB}"
+      DTS:DTSID="{1E919937-0442-4590-A9C8-8C07DE7AE968}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="CountInsertedRows">
@@ -27,16 +27,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{21509E0D-C66E-40C7-864F-76DF2EA16988}"
+      DTS:DTSID="{B0386F22-54D4-4DA8-A5CA-F672CFC81FCD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="EntityName">
       <DTS:VariableValue
-        DTS:DataType="8">StageToDimension.UserExtracted</DTS:VariableValue>
+        DTS:DataType="8">StageToDimension.UserLoad</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{03FB1FB9-4FE1-4BAF-8C2D-B40D5B399589}"
+      DTS:DTSID="{14BBAA05-FAE1-409A-A547-4C3EB85FA8E3}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="ExecutionLogID">
@@ -45,14 +45,23 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{983B06EA-52D3-460A-944D-F1C54257EA0E}"
+      DTS:DTSID="{EE2DC882-E048-4A65-A9F3-5E21F5E09EBA}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;[Dimension].[UserExtractStageToDimension]  &quot; +  (DT_WSTR, 10)@[User::ExecutionLogID]"
+      DTS:Expression="&quot;EXEC [Dimension].[UserToDimension]    &quot; +  (DT_WSTR, 10)@[User::ExecutionLogID]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="UserExtractStageToDimensionQuery">
+      DTS:ObjectName="StageToFactProc">
       <DTS:VariableValue
-        DTS:DataType="8">[Dimension].[UserExtractStageToDimension]  0</DTS:VariableValue>
+        DTS:DataType="8">EXEC [Dimension].[UserToDimension]    0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{551BE275-2AA5-4BF8-9D1B-3BD729F1E4B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdatedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -60,7 +69,7 @@
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{A4F0C24A-B8DF-4B4C-BB49-3AE717453BD2}"
+      DTS:DTSID="{7F8ABC2B-87F2-4555-ABB0-C3B21A8C01FC}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Sequence Container">
@@ -70,7 +79,7 @@
           DTS:refId="Package\Sequence Container\SQL - End Package Log"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Attività Esegui SQL"
-          DTS:DTSID="{E5F5338B-AF13-4AD9-B26F-2A556E94DA21}"
+          DTS:DTSID="{1900C420-27B3-4150-B38C-CBC11538058E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SQL - End Package Log"
@@ -80,7 +89,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{2771923C-1E46-46F9-9170-C947F8790A31}"
-              SQLTask:SqlStatementSource="EXEC [Control].[EndLog] 1,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="EXEC [Control].[EndLog] 1,?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ExecutionLogID"
@@ -93,6 +102,12 @@
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="3"
                 SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::UpdatedRows"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -100,7 +115,7 @@
           DTS:refId="Package\Sequence Container\SQL - Start Package Log"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Attività Esegui SQL"
-          DTS:DTSID="{E7F2BBC7-2610-4C6F-BC44-8CBBCBC83345}"
+          DTS:DTSID="{A7AE4303-3938-4103-82D3-6EA21F1F523D}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SQL - Start Package Log"
@@ -128,7 +143,7 @@
           DTS:refId="Package\Sequence Container\SQL - User Stage To Dimension"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Attività Esegui SQL"
-          DTS:DTSID="{D35378BD-4C4D-409C-91D3-F5CF7BFF1D4A}"
+          DTS:DTSID="{2BACA7BF-5C8B-43B4-AA76-51DAB4F8A5F8}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SQL - User Stage To Dimension"
@@ -139,17 +154,14 @@
             <SQLTask:SqlTaskData
               SQLTask:Connection="{2771923C-1E46-46F9-9170-C947F8790A31}"
               SQLTask:SqlStmtSourceType="Variable"
-              SQLTask:SqlStatementSource="User::UserExtractStageToDimensionQuery"
+              SQLTask:SqlStatementSource="User::StageToFactProc"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
                 SQLTask:ResultName="0"
                 SQLTask:DtsVariableName="User::CountInsertedRows" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::CountInsertedRows"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="1"
+                SQLTask:DtsVariableName="User::UpdatedRows" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -158,7 +170,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{26D62AA1-9989-45D0-AA04-9BC4DD9F0400}"
+          DTS:DTSID="{512CDEF5-3E4B-4A5D-8656-98CC07B1FC54}"
           DTS:From="Package\Sequence Container\SQL - Start Package Log"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -166,7 +178,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{5D08A2B2-E780-4B9F-9F08-05B155887C8B}"
+          DTS:DTSID="{30E74451-5E66-4F2A-AE41-F3FB44291C06}"
           DTS:From="Package\Sequence Container\SQL - User Stage To Dimension"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -178,7 +190,7 @@
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{499715A0-4BAC-4879-8C3F-8C215498278D}"
+      DTS:DTSID="{B0F5A054-9CEA-41DF-989F-D49489F44226}"
       DTS:EventID="1021258152"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -186,7 +198,7 @@
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="Proprietà di propagazione dell'evento"
-          DTS:DTSID="{130B8D30-48F1-4141-A0D4-F4246D339393}"
+          DTS:DTSID="{8EAB2BE5-4F53-45D7-AF9B-FD96B1D53A3A}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -199,7 +211,7 @@
           DTS:refId="Package.EventHandlers[OnError]\SQL - End Package Log Reporting Error"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Attività Esegui SQL"
-          DTS:DTSID="{DBF1D6F2-80C8-4CFA-81F9-74B4E41B9059}"
+          DTS:DTSID="{D6F3B325-7931-4833-95BF-517ED5F873AA}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="SQL - End Package Log Reporting Error"
@@ -279,20 +291,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <AnnotationLayout
-          Text="This task initiate the log for the package&#xA;"
-          ParentId="Package\Sequence Container"
-          FontInfo="{assembly:Null}"
-          Size="200,72"
-          Id="d7f3ede7-b1b4-41a7-8338-a64e93925526"
-          TopLeft="313,5.5" />
-        <AnnotationLayout
-          Text="Complete run Log&#xA;&#xA;"
-          ParentId="Package\Sequence Container"
-          FontInfo="{assembly:Null}"
-          Size="124,72"
-          Id="8d06ca2c-0805-4591-9cff-4db7f3bd3f4e"
-          TopLeft="338,318" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
           TopLeft="145.75,203">
@@ -315,6 +313,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="This task initiate the log for the package&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="200,72"
+          Id="d7f3ede7-b1b4-41a7-8338-a64e93925526"
+          TopLeft="313,5.5" />
+        <AnnotationLayout
+          Text="Complete run Log&#xA;&#xA;"
+          ParentId="Package\Sequence Container"
+          FontInfo="{assembly:Null}"
+          Size="124,72"
+          Id="8d06ca2c-0805-4591-9cff-4db7f3bd3f4e"
+          TopLeft="338,318" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -338,7 +350,7 @@
           Text="When the package Fails we log the error in our logging table"
           ParentId="Package.EventHandlers[OnError]"
           FontInfo="{assembly:Null}"
-          Size="350,40"
+          Size="350,NaN"
           Id="394f056e-6eee-4e90-9e00-e5498fb3bebb"
           TopLeft="337,57" />
       </GraphLayout>

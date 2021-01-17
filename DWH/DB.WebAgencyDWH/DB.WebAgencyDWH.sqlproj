@@ -78,12 +78,14 @@
     <Build Include="Security\Stage.sql" />
     <Build Include="Control\Stored Procedures\StartLog.sql" />
     <Build Include="Control\Stored Procedures\EndLog.sql" />
-    <Build Include="Fact\Tables\pageviews_extract.sql" />
-    <Build Include="Dimension\Tables\users_extract.sql" />
     <Build Include="Control\Stored Procedures\LastExportedPageViewDate.sql" />
     <Build Include="Security\Fact.sql" />
     <Build Include="Security\Dimension.sql" />
-    <Build Include="Dimension\Stored Procedures\UserExtractStageToDimension.sql" />
     <Build Include="Fact\Stored Procedures\PopulatePageViewsFactTable.sql" />
+    <Build Include="Fact\Tables\PageViews.sql" />
+    <Build Include="Dimension\Tables\User.sql" />
+    <Build Include="Dimension\Tables\LocationMini.sql" />
+    <Build Include="Dimension\Stored Procedures\UserToDimension.sql" />
+    <Build Include="Dimension\Stored Procedures\LocationMiniToDimension.sql" />
   </ItemGroup>
 </Project>

@@ -23,21 +23,22 @@ BEGIN
 		SELECT [Action]
 		FROM(
 			--The goal is to update or insert records based on the business key so out target table is the fact table
-			MERGE [Fact].[pageviews_extract] AS [Target]
-			--our source table is coumputed joining the record from the stage table and trying to take the user key to get the value of the location
+			MERGE [Fact].[PageViews] AS [Target]
+			--our source table is coumputed joining the record from the stage table and trying to take the user key to get the value of the location at the time of the visit so iven if the user will change the location we will still have the original key and it wont be affected
 			USING (
 				SELECT 
-						ISNULL(UsExt.[users_extract_key],-1) AS user_extract_key, --our dummy record has -1 this should never happen
-						PageExt.[UserID],
+						ISNULL(Us.[UserSurrogateKey],-1) AS UserSurrogateKey, --our dummy record has -1 this should never happen
+						ISNULL(Us.[CurrentLocationMiniSurrogateKey],-1) AS CurrentLocationMiniSurrogateKey,
 						PageExt.[PageViewID],
 						PageExt.[PageviewDatetime],
 						PageExt.[url],
 						@ExecutionLogID as [ExecutionLogID],
 						GETDATE() as [DateTime]
 				FROM [Stage].[pageviews_extract] as PageExt
-				LEFT JOIN [Dimension].[users_extract] as UsExt 
-					ON PageExt.UserID = UsExt.UserID 
-					AND UsExt.IsActive =1
+				LEFT JOIN [Dimension].[User] as Us 
+					ON Us.UserID = PageExt.UserID
+				LEFT JOIN [Dimension].[LocationMini] AS CusLoc
+					on CusLoc.LocationMiniSurrogateKey = Us.CurrentLocationMiniSurrogateKey
 			) AS [Source]
 			--if the record match for the busines key then we just update the values if there is any difference
 			ON (
@@ -45,20 +46,18 @@ BEGIN
 			) 
 			WHEN MATCHED AND 
 				(
-					[Target].[UserID] <> [Source].[UserID] OR 
 					[Target].[PageviewDatetime] <> [Source].[PageviewDatetime] OR 
 					[Target].[url] <> [Source].[url]  
 				)
 			THEN UPDATE SET 
-				[Target].[UserID] = [Source].[UserID], 
 				[Target].[PageviewDatetime] = [Source].[PageviewDatetime], 
 				[Target].[url] = [Source].[url]
 			--If there is no record with the same business key we need to insert it
 			WHEN NOT MATCHED BY TARGET 
 			THEN INSERT 
 			(
-				[users_extract_key], 
-				[UserID],
+				[UserSurrogateKey], 
+				[LocationMiniSurrogateKey],
 				[PageViewID],
 				[PageviewDatetime],
 				[url],
@@ -66,8 +65,8 @@ BEGIN
 				[InsertedDateTime]
 			)
 			VALUES (
-				[Source].user_extract_key,
-				[Source].[UserID],
+				[Source].[UserSurrogateKey],
+				[Source].[CurrentLocationMiniSurrogateKey],
 				[Source].[PageViewID],
 				[Source].[PageviewDatetime],
 				[Source].[url],
@@ -100,7 +99,7 @@ BEGIN
 		FROM #CountAction
 
 		DROP TABLE #CountAction 
-COMMIT TRAN
+	COMMIT TRAN
 
 		
 

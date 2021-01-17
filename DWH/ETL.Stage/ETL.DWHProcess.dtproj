@@ -26,16 +26,17 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-R4R192B</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7fIYLt3XIE6VY9CQDJ6bvwAAAAACAAAAAAAQZgAAAAEAACAAAAAujmpgJzxG+FzQu+wDkh+Yx9/d0+2lz2XfjtlHFu1tJQAAAAAOgAAAAAIAACAAAABwaRoNzRa9azeg2qtzvsJsJ1DwyD7P0IsLaAUhrC717ZAAAABMMxrz7yXen/8s8oDcdUHp5vu+mophoLyKqQP2T366Ob7KEZehX7OpFFhX+AaFmKVv1nUaIzOBwR+KkbbhPoRs1PyzchvybwhIsx8fsY55Dfi2e98fwSOrMG+GKJvOA01tVAyik8lv3KpJgB5EPj6oWtk1wfbN3Re8W8NicMZvC1aN/Fez2XUcPImpzS5QoLRAAAAAEf267QPYyoy+9zvY52mDRM+/xehmfnwhmq+jY0eVqhqQyWejtbNGtasSKRsqDD274lyXZqa8/yKUN66VDOJTsw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7fIYLt3XIE6VY9CQDJ6bvwAAAAACAAAAAAAQZgAAAAEAACAAAACESLf2sTuLbkVtdEPjU/+ZDOBuiVrypn3QGZbHUca6LAAAAAAOgAAAAAIAACAAAABDPPNtesCBEoMxfLCI+cJLM3NKUbZ4tLLUzm0K640j7JAAAAD7vZPiEHzbJcvklY2sq8KNXINRXpjlr6m++bV4CYYUemq/1Moishv9Yb/UIB5+yRUpn/rSTGBsca7YjsWH/v5LhDERmjqP1dLQCS4HhAo69Ys4BHoGqEPemdEF/O1CY5KXCsgcOoxqhe0WqHo8u7/UOgPvFniybiEANpOavxJko9jONQYGDWWngi3htbC00w5AAAAAmqB/fEVa5H1g5rhBurrxS24yivvFQYIBU5nTgcyaxIIy5kzZidoJclyGkxnWlU8bFWe1Npj4xmnGZIT6/No+VQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="SourceToStage.LoadUsers.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SourceToStage.LoadPageViews.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="StageToDimension.UserExtracted.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="StageToFact.PageViews.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="HourlyProcess.GetPages.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DailyProcess.GetUsers.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="StageToDimension.LocationMini.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="StageToDimension.UserLoad.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="DWHExport.conmgr" />
@@ -315,23 +316,6 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="StageToDimension.UserExtracted.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{262232A4-27E7-4DA7-9B85-84D50EC64C9D}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">StageToDimension UserExtracted</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{79C81F00-2D9A-46A4-8621-DA363BD1FD8B}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters />
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="StageToFact.PageViews.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{21275BE0-AE4E-48D7-B5B6-CB85A15E64C4}</SSIS:Property>
@@ -372,10 +356,44 @@
                 <SSIS:Property SSIS:Name="Name">HourlyProcess GetPages</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">31</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">33</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7D99B7E0-3FA7-4F53-9458-6EBD475196C7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{47B0FCA9-8A02-4F25-8664-EF4647A835D6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="StageToDimension.LocationMini.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{FE34DAD4-E247-456B-9E03-EC5F89E1FEA9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">StageToDimension UserExtracted</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">25</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{3907EC1D-57A4-427A-A8F5-C76BB19F9585}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="StageToDimension.UserLoad.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{4597FFEC-6941-4988-A057-FA2A5E025817}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">StageToDimension UserLoad</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8366A3E6-91F7-40A7-A7FF-EB58FE11EB88}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

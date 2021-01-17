@@ -11,7 +11,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT 
-		MAX([PageviewDatetime]) AS lastPageViewsDate
-	FROM [WebAgencyDWH].[Fact].[pageviews_extract]
+		 CONVERT(VARCHAR(25), MAX([PageviewDatetime]) , 121) AS lastPageViewsDate
+	FROM [WebAgencyDWH].[Fact].[PageViews]
 
 END

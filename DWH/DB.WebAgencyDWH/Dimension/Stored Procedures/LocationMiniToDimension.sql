@@ -1,10 +1,10 @@
 ﻿-- =============================================
 -- Author:	Giuseppe Carnimeo
 -- Create date: 20210116
--- Description: This procedure Load the data from the staging table to the Dimension table
+-- Description: This procedure Loads all the possible Postcode we could have into its Dimension table 
 -- Parameters: @ExecutionLogID given from the ssis process
 -- =============================================
-CREATE PROCEDURE [Dimension].[UserExtractStageToDimension]
+CREATE PROCEDURE [Dimension].[LocationMiniToDimension]
 @ExecutionLogID	INT = -1
 AS
 BEGIN
@@ -15,39 +15,25 @@ BEGIN
 
 		--the idea here is to close all the rows that exist in staging to be able to load them again with the new values, this is needed because the UserExtract dimension is an SCD Type 2 and we want to keep the history of the old records
 
-		WITH RowsToClose
-		AS(
-			SELECT 
-				[UserID],
-				[Postcode]
-			FROM [Stage].[users_extract]
-		)
-		UPDATE DimUs
-			SET 
-				DimUs.[EndDate] = GETDATE(),
-				IsActive = 0,
-				ExecutionLogID = @ExecutionLogID  
-		FROM [Dimension].[users_extract] AS DimUs
-		INNER JOIN RowsToClose AS ExistingRows
-		ON DimUs.[UserID] = ExistingRows.[UserID]
-		WHERE IsActive = 1;
-
-		--after we closed the existing users we can preform the full load 
-		INSERT [Dimension].[users_extract]
-        (
-			[UserID], 
-			[Postcode],
-			[ExecutionLogID],
-			[StartDate],
-			[IsActive]
+		INSERT INTO [Dimension].[LocationMini]
+		(
+				[Postcode],
+				[ExecutionLogID]
 		)
 		SELECT 
-				[UserID],
-				[Postcode],
-				@ExecutionLogID,
-				GETDATE(),
-				1
-		FROM [Stage].[users_extract];
+			DISTINCT 
+			[Postcode],
+			@ExecutionLogID
+		FROM 
+			[Stage].[users_extract] AS ue
+		WHERE
+		   NOT EXISTS 
+		   (
+			SELECT * 
+			FROM 
+				[Dimension].[LocationMini] AS lm
+					  WHERE lm.[Postcode] = ue.[Postcode]
+		    )
 
 		--eventually we return the number of the inserted rows by the last statement
 		SELECT @@ROWCOUNT As InsertedRows 
