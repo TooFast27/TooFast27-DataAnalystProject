@@ -7,9 +7,10 @@
     [UpdatedExecutionLogID]           INT      NULL,
     [UpdatedExtractedDate]            DATETIME NULL,
     PRIMARY KEY CLUSTERED ([UserSurrogateKey] ASC),
-    FOREIGN KEY ([CurrentLocationMiniSurrogateKey]) REFERENCES [Dimension].[LocationMini] ([LocationMiniSurrogateKey]),
-    UNIQUE NONCLUSTERED ([UserID] ASC)
+    FOREIGN KEY ([CurrentLocationMiniSurrogateKey]) REFERENCES [Dimension].[LocationMini] ([LocationMiniSurrogateKey])
 );
+
+
 
 
 

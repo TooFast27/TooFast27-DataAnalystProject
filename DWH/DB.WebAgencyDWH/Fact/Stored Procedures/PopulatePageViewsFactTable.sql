@@ -13,9 +13,49 @@ BEGIN
 
 	BEGIN TRAN;
 		--We create a temporal table to get all the informations for the logs
+		IF OBJECT_ID('tempdb..#CountAction') IS NOT NULL 
+		BEGIN
+			DROP TABLE #CountAction
+		END
+
 		CREATE TABLE #CountAction(
 			[Action] VARCHAR(10)
 		) 
+
+		IF OBJECT_ID('tempdb..#UserSourceForMerge') IS NOT NULL 
+		BEGIN
+			DROP TABLE #UserSourceForMerge
+		END
+
+		CREATE TABLE #UserSourceForMerge(
+			[UserSurrogateKey] int ,
+			[CurrentLocationMiniSurrogateKey] int,
+			[PageViewID] INT  primary Key,
+			[PageviewDatetime] DATETIME,
+			[url] VARCHAR(500)
+		)
+
+		INSERT INTO #UserSourceForMerge(
+			[UserSurrogateKey],
+			[CurrentLocationMiniSurrogateKey],
+			[PageViewID],
+			[PageviewDatetime],
+			[url]
+		)
+		SELECT 
+				ISNULL(Us.[UserSurrogateKey],-1) AS UserSurrogateKey, --our dummy record has -1 this should never happen
+				ISNULL(Us.[CurrentLocationMiniSurrogateKey],-1) AS CurrentLocationMiniSurrogateKey,
+				PageExt.[PageViewID],
+				PageExt.[PageviewDatetime],
+				PageExt.[url]
+		FROM [Stage].[pageviews_extract] as PageExt
+		LEFT JOIN [Dimension].[User] as Us 
+			ON Us.UserID = PageExt.UserID
+		LEFT JOIN [Dimension].[LocationMini] AS CusLoc
+			on CusLoc.LocationMiniSurrogateKey = Us.CurrentLocationMiniSurrogateKey
+
+
+
 
 		INSERT INTO #CountAction (
 			[Action]
@@ -25,21 +65,7 @@ BEGIN
 			--The goal is to update or insert records based on the business key so out target table is the fact table
 			MERGE [Fact].[PageViews] AS [Target]
 			--our source table is coumputed joining the record from the stage table and trying to take the user key to get the value of the location at the time of the visit so iven if the user will change the location we will still have the original key and it wont be affected
-			USING (
-				SELECT 
-						ISNULL(Us.[UserSurrogateKey],-1) AS UserSurrogateKey, --our dummy record has -1 this should never happen
-						ISNULL(Us.[CurrentLocationMiniSurrogateKey],-1) AS CurrentLocationMiniSurrogateKey,
-						PageExt.[PageViewID],
-						PageExt.[PageviewDatetime],
-						PageExt.[url],
-						@ExecutionLogID as [ExecutionLogID],
-						GETDATE() as [DateTime]
-				FROM [Stage].[pageviews_extract] as PageExt
-				LEFT JOIN [Dimension].[User] as Us 
-					ON Us.UserID = PageExt.UserID
-				LEFT JOIN [Dimension].[LocationMini] AS CusLoc
-					on CusLoc.LocationMiniSurrogateKey = Us.CurrentLocationMiniSurrogateKey
-			) AS [Source]
+			USING #UserSourceForMerge AS [Source]
 			--if the record match for the busines key then we just update the values if there is any difference
 			ON (
 				[Target].[PageViewID] = [Source].[PageViewID]
@@ -70,8 +96,8 @@ BEGIN
 				[Source].[PageViewID],
 				[Source].[PageviewDatetime],
 				[Source].[url],
-				[Source].[ExecutionLogID],
-				[Source].[DateTime]
+				@ExecutionLogID,
+				GETDATE()
 			)
 			OUTPUT $action AS [Action]
 		) MergeOutput;	 

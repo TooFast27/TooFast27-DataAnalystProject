@@ -3,7 +3,8 @@
     [Postcode]                 VARCHAR (10) NOT NULL,
     [ExecutionLogID]           INT          NOT NULL,
     [ExtractedDate]            DATETIME     DEFAULT (getdate()) NOT NULL,
-    PRIMARY KEY CLUSTERED ([LocationMiniSurrogateKey] ASC),
-    UNIQUE NONCLUSTERED ([Postcode] ASC)
+    PRIMARY KEY CLUSTERED ([LocationMiniSurrogateKey] ASC)
 );
+
+
 

@@ -68,6 +68,7 @@
     <Folder Include="Dimension\Tables\" />
     <Folder Include="Dimension\Stored Procedures\" />
     <Folder Include="Fact\Stored Procedures\" />
+    <Folder Include="Fact\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Control\Tables\ExecutionLog.sql" />
@@ -87,5 +88,7 @@
     <Build Include="Dimension\Tables\LocationMini.sql" />
     <Build Include="Dimension\Stored Procedures\UserToDimension.sql" />
     <Build Include="Dimension\Stored Procedures\LocationMiniToDimension.sql" />
+    <Build Include="Fact\Views\PageViewsOriginalLocation.sql" />
+    <Build Include="Fact\Views\PageViewsMosRecentPostCode.sql" />
   </ItemGroup>
 </Project>

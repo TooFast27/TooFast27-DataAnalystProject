@@ -13,10 +13,37 @@ BEGIN
 
 	BEGIN TRAN;
 		--We create a temporal table to get all the informations for the logs
+		IF OBJECT_ID('tempdb..#CountAction') IS NOT NULL 
+		BEGIN
+			DROP TABLE #CountAction
+		END
+
 		CREATE TABLE #CountAction(
 			[Action] VARCHAR(10)
 		) 
 
+		IF OBJECT_ID('tempdb..#UserSourceForMerge') IS NOT NULL 
+		BEGIN
+			DROP TABLE #UserSourceForMerge
+		END
+
+		CREATE TABLE #UserSourceForMerge(
+			[UserID] int primary Key,
+			CurrentLocationMiniSurrogateKey int
+		)
+
+		INSERT INTO #UserSourceForMerge(
+			UserID,
+			CurrentLocationMiniSurrogateKey
+		)
+		Select 
+			UsExt.[UserID],
+			ISNULL(CUsLoc.LocationMiniSurrogateKey,-1) AS CurrentLocationMiniSurrogateKey --our dummy record has -1 this should never happen,
+		FROM [Stage].[users_extract] as UsExt
+			LEFT JOIN [Dimension].[LocationMini] as CUsLoc
+				ON CUsLoc.[Postcode] = UsExt.[Postcode] 
+
+		
 		INSERT INTO #CountAction (
 			[Action]
 		)
@@ -25,15 +52,7 @@ BEGIN
 			--the target table where we perform the insert
 			MERGE [Dimension].[User] AS [Target]
 			--The source table, the CurrentLocationMiniSurrogateKey rapresent the most recent position we have for certain user!
-			USING (
-				SELECT 
-						UsExt.[UserID],
-						ISNULL(CUsLoc.LocationMiniSurrogateKey,-1) AS CurrentLocationMiniSurrogateKey, --our dummy record has -1 this should never happen,
-						@ExecutionLogID as [ExecutionLogID]
-				FROM [Stage].[users_extract] as UsExt
-				LEFT JOIN [Dimension].[LocationMini] as CUsLoc
-					ON CUsLoc.[Postcode] = UsExt.[Postcode] 
-			) AS [Source]
+			USING #UserSourceForMerge AS [Source]
 			--if we have the same user ID we need to update his position.
 			ON (
 				[Target].[UserID] = [Source].[UserID]
@@ -44,7 +63,7 @@ BEGIN
 				)
 			THEN UPDATE SET 
 				[Target].[CurrentLocationMiniSurrogateKey] = [Source].[CurrentLocationMiniSurrogateKey],
-				[UpdatedExecutionLogID] = [Source].[ExecutionLogID],
+				[UpdatedExecutionLogID] = 1,
 				[UpdatedExtractedDate] = GETDATE()
 			--If we do not have any record it means that this user is a new one therefore we insert it
 			WHEN NOT MATCHED BY TARGET 
@@ -57,7 +76,7 @@ BEGIN
 			VALUES (
 				[Source].[UserID],
 				[Source].[CurrentLocationMiniSurrogateKey],
-				[Source].[ExecutionLogID]
+				0
 			)
 			OUTPUT $action AS [Action]
 		) MergeOutput;	 
