@@ -4,8 +4,12 @@
     [CurrentLocationMiniSurrogateKey] INT      NOT NULL,
     [ExecutionLogID]                  INT      NOT NULL,
     [ExtractedDate]                   DATETIME DEFAULT (getdate()) NOT NULL,
+    [UpdatedExecutionLogID]           INT      NULL,
+    [UpdatedExtractedDate]            DATETIME NULL,
     PRIMARY KEY CLUSTERED ([UserSurrogateKey] ASC),
     FOREIGN KEY ([CurrentLocationMiniSurrogateKey]) REFERENCES [Dimension].[LocationMini] ([LocationMiniSurrogateKey]),
     UNIQUE NONCLUSTERED ([UserID] ASC)
 );
+
+
 

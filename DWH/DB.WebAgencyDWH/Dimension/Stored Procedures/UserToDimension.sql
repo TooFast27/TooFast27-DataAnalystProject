@@ -43,7 +43,9 @@ BEGIN
 					[Target].[CurrentLocationMiniSurrogateKey] <> [Source].[CurrentLocationMiniSurrogateKey] 
 				)
 			THEN UPDATE SET 
-				[Target].[CurrentLocationMiniSurrogateKey] = [Source].[CurrentLocationMiniSurrogateKey]
+				[Target].[CurrentLocationMiniSurrogateKey] = [Source].[CurrentLocationMiniSurrogateKey],
+				[UpdatedExecutionLogID] = [Source].[ExecutionLogID],
+				[UpdatedExtractedDate] = GETDATE()
 			--If we do not have any record it means that this user is a new one therefore we insert it
 			WHEN NOT MATCHED BY TARGET 
 			THEN INSERT 

@@ -11,8 +11,8 @@
   DTS:LocaleID="1040"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{81832400-9459-45E4-9049-62DCE0615102}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{E1A4C947-92AF-46EB-A2E6-2236DFFF62C9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -859,40 +859,6 @@
           Id="Package\Sequence Container\DTF - Load PageView Data Into Staging\CNT - Count Rows"
           TopLeft="433,123" />
         <EdgeLayout
-          Id="Package\Sequence Container\DTF - Load PageView Data Into Staging.Paths[Conteggio righe Output 1]"
-          TopLeft="518.5,165">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21.5,42"
-              Start="0,0"
-              End="21.5,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17"
-                    Point2="0,21"
-                    Point3="4,21" />
-                  <mssgle:LineSegment
-                    End="17.5,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.5,21"
-                    Point2="21.5,21"
-                    Point3="21.5,25" />
-                  <mssgle:LineSegment
-                    End="21.5,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Sequence Container\DTF - Load PageView Data Into Staging.Paths[Output origine OLE DB]"
           TopLeft="550,91">
           <EdgeLayout.Curve>
@@ -918,6 +884,40 @@
                     Point3="-31.5,20" />
                   <mssgle:LineSegment
                     End="-31.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DTF - Load PageView Data Into Staging.Paths[Conteggio righe Output 1]"
+          TopLeft="518.5,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,42"
+              Start="0,0"
+              End="21.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="17.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,21"
+                    Point2="21.5,21"
+                    Point3="21.5,25" />
+                  <mssgle:LineSegment
+                    End="21.5,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

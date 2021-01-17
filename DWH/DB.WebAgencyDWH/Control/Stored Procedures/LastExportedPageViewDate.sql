@@ -11,7 +11,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT 
-		 CONVERT(VARCHAR(25), MAX([PageviewDatetime]) , 121) AS lastPageViewsDate
+		 ISNULL(CONVERT(VARCHAR(25), MAX([PageviewDatetime]) , 121),'1990-01-01 10:00:00.000') AS lastPageViewsDate
 	FROM [WebAgencyDWH].[Fact].[PageViews]
 
 END
