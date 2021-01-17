@@ -91,4 +91,7 @@
     <Build Include="Fact\Views\PageViewsOriginalLocation.sql" />
     <Build Include="Fact\Views\PageViewsMosRecentPostCode.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.InsertHardCodedData.sql" />
+  </ItemGroup>
 </Project>
