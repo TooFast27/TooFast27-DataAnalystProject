@@ -1,7 +1,7 @@
 ﻿
 CREATE VIEW [Export].[VwUser] AS
 
-SELECT top(9324)
+SELECT
 	[UserID],
 	[Postcode]
 FROM [$(WebAgency)].dbo.[User]

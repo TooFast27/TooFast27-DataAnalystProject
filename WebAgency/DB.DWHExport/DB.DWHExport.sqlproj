@@ -59,10 +59,12 @@
     <Folder Include="Export\" />
     <Folder Include="Export\Views\" />
     <Folder Include="Security\" />
+    <Folder Include="Export\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Export\Views\VwUser.sql" />
     <Build Include="Security\Export.sql" />
+    <Build Include="Export\Stored Procedures\GetPageView_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DB.WebAgency\DB.WebAgency.sqlproj">
