@@ -27,27 +27,14 @@ BEGIN
 			DROP TABLE #UserSourceForMerge
 		END
 
-		CREATE TABLE #UserSourceForMerge(
-			[UserSurrogateKey] int ,
-			[CurrentLocationMiniSurrogateKey] int,
-			[PageViewID] INT  primary Key,
-			[PageviewDatetime] DATETIME,
-			[url] VARCHAR(500)
-		)
-
-		INSERT INTO #UserSourceForMerge(
-			[UserSurrogateKey],
-			[CurrentLocationMiniSurrogateKey],
-			[PageViewID],
-			[PageviewDatetime],
-			[url]
-		)
+	
 		SELECT 
 				ISNULL(Us.[UserSurrogateKey],-1) AS UserSurrogateKey, --our dummy record has -1 this should never happen
 				ISNULL(Us.[CurrentLocationMiniSurrogateKey],-1) AS CurrentLocationMiniSurrogateKey,
 				PageExt.[PageViewID],
 				PageExt.[PageviewDatetime],
 				PageExt.[url]
+		INTO #UserSourceForMerge
 		FROM [Stage].[pageviews_extract] as PageExt
 		LEFT JOIN [Dimension].[User] as Us 
 			ON Us.UserID = PageExt.UserID
